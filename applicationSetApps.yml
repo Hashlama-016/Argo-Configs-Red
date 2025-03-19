@@ -9,7 +9,7 @@ spec:
         elements:
           - team: airflow-team
             namespace: airflow-team
-            url: https://github.com/Hashlama-016/Exodus-team.git
+            url: https://github.com/Hashlama-016/Argo-Configs-Red.git
             branch: airflow
             path: airflow
             project: airflow
