@@ -1,0 +1,9 @@
+{{- range .Values.teams }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ . }}
+annotations:
+  openshift.io/default-sa: {{ . }}-sa
+---
+{{- end }}

@@ -1,0 +1,24 @@
+---
+apiVersion: v1
+kind: List
+items:
+{{- range .Values.teams }}
+  - apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: {{ . }}-sa
+      namespace: {{ . }}
+    imagePullSecrets:
+      - name: quay-secret
+  - apiVersion: authorization.openshift.io/v1
+    kind: RoleBinding
+    metadata:
+      name: {{ . }}-anyuid-binding
+      namespace: {{ . }}
+    roleRef:
+      name: anyuid
+    subjects:
+      - kind: ServiceAccount
+        name: {{ . }}-sa
+        namespace: {{ . }}
+{{- end }}
