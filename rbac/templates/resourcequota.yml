@@ -1,25 +1,20 @@
 {{- range .Values.teams }}
+---
 apiVersion: v1
 kind: ResourceQuota
 metadata:
   name: {{ . }}
   namespace: {{ . }}
 spec:
-  hard:
-    limits.cpu: "4"
-    limits.memory: "8Gi"
-    pods: "50"
----
-apiVersion: v1
-kind: LimitRange
-metadata:
-  name: default-limits
-  namespace: {{ . }}
-spec:
-  limits:
-    - type: Container
-      default:
-        cpu: 4
-        memory: 8Gi
----
+  # No hard limits specified
+  # But we can still define limits per team
+  {{- if or (eq . "airflow") (eq . "portal") (eq . "image-builder") }}
+  limits.cpu: "2"
+  limits.memory: "8Gi"
+  pods: "100"
+  {{- else }}
+  limits.cpu: "1"
+  limits.memory: "6Gi"
+  pods: "50"
+  {{- end }}
 {{- end }}
