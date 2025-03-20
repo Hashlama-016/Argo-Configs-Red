@@ -14,3 +14,6 @@ spec:
       url: http://thanos-querier.openshift-monitoring.svc:9091
       access: proxy
       isDefault: true
+  instanceSelector:
+    matchLabels:
+      app: grafana
