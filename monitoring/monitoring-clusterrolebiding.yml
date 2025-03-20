@@ -5,7 +5,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: grafana
-    namespace: openshift-monitoring
+    namespace: monitoring
 roleRef:
   kind: ClusterRole
   name: cluster-monitoring-view
