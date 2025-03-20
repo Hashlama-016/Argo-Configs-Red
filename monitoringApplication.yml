@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/Hashlama-016/Argo-Configs.git'
+    repoURL: 'https://github.com/Hashlama-016/Argo-Configs-Red.git'
     targetRevision: main
     path: monitoring
   destination:
