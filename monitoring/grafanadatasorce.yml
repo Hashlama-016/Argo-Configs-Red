@@ -3,6 +3,8 @@ kind: GrafanaDataSource
 metadata:
   name: prometheus-datasource
   namespace: monitoring
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   name: prometheus.yaml
   datasources:
