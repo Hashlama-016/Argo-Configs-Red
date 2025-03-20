@@ -2,7 +2,7 @@ apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDataSource
 metadata:
   name: prometheus-datasource
-  namespace: monitoring
+  namespace: openshift-monitoring
   annotations:
     argocd.argoproj.io/sync-wave: "0"
     argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"

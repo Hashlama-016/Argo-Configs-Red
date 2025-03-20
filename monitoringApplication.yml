@@ -11,7 +11,7 @@ spec:
     path: monitoring
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: openshift-monitoring
   syncPolicy:
     automated:
       prune: true

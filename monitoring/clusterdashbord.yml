@@ -2,7 +2,7 @@ apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDashboard
 metadata:
   name: cluster-admin-dashboard
-  namespace: monitoring
+  namespace: openshift-monitoring
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"
