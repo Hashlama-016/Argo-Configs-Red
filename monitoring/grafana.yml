@@ -9,6 +9,7 @@ spec:
   serviceAccountName: grafana
   ingress:
     enabled: true
+    hostname: grafana-service.apps.hashlama016-red-openshift.bsmch.net
   config:
     log:
       mode: "console"
@@ -16,3 +17,4 @@ spec:
     security:
       admin_user: "admin"
       admin_password: "admin"
+

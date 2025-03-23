@@ -13,28 +13,50 @@ spec:
   json: |
     {
       "dashboard": {
-        "id": null,
         "title": "Cluster Admin Dashboard",
         "panels": [
           {
             "type": "graph",
-            "title": "Total CPU Usage (by Node)",
+            "title": "Cluster CPU Usage",
             "targets": [
               {
-                "expr": "sum(rate(container_cpu_usage_seconds_total[5m])) by (node)"
+                "expr": "sum(rate(container_cpu_usage_seconds_total[5m]))",
+                "refId": "A"
               }
             ]
           },
           {
             "type": "graph",
-            "title": "Total Memory Usage (by Node)",
+            "title": "Cluster Memory Usage",
             "targets": [
               {
-                "expr": "sum(container_memory_working_set_bytes) by (node)"
+                "expr": "sum(container_memory_working_set_bytes)",
+                "refId": "B"
+              }
+            ]
+          },
+          {
+            "type": "graph",
+            "title": "Total Pods",
+            "targets": [
+              {
+                "expr": "count(kube_pod_info)",
+                "refId": "C"
+              }
+            ]
+          },
+          {
+            "type": "graph",
+            "title": "User Created Resources",
+            "targets": [
+              {
+                "expr": "count(kube_resourcequota{namespace!~\"^openshift.*\"})",
+                "refId": "D"
               }
             ]
           }
-        ]
+        ],
+        "overwrite": true
       },
       "overwrite": true
     }
