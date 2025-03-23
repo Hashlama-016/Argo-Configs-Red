@@ -3,6 +3,8 @@ kind: GrafanaDashboard
 metadata:
   name: cluster-admin-dashboard
   namespace: monitoring
+  labels:
+    app: grafana
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"
@@ -13,51 +15,95 @@ spec:
       app: grafana
   json: |
     {
-      "dashboard": {
-        "title": "Cluster Admin Dashboard",
-        "panels": [
-          {
-            "type": "graph",
-            "title": "Cluster CPU Usage",
-            "targets": [
-              {
-                "expr": "sum(rate(container_cpu_usage_seconds_total[5m]))",
-                "refId": "A"
-              }
-            ]
-          },
-          {
-            "type": "graph",
-            "title": "Cluster Memory Usage",
-            "targets": [
-              {
-                "expr": "sum(container_memory_working_set_bytes)",
-                "refId": "B"
-              }
-            ]
-          },
-          {
-            "type": "graph",
-            "title": "Total Pods",
-            "targets": [
-              {
-                "expr": "count(kube_pod_info)",
-                "refId": "C"
-              }
-            ]
-          },
-          {
-            "type": "graph",
-            "title": "User Created Resources",
-            "targets": [
-              {
-                "expr": "count(kube_resourcequota{namespace!~\"^openshift.*\"})",
-                "refId": "D"
-              }
-            ]
-          }
-        ],
-        "overwrite": true
+      "annotations": {
+        "list": []
       },
-      "overwrite": true
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": null,
+      "links": [],
+      "liveNow": false,
+      "panels": [
+        {
+          "type": "graph",
+          "title": "Cluster CPU Usage",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 0
+          },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total[5m]))",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "Cluster Memory Usage",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 0
+          },
+          "targets": [
+            {
+              "expr": "sum(container_memory_working_set_bytes)",
+              "refId": "B"
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "Total Pods",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 8
+          },
+          "targets": [
+            {
+              "expr": "count(kube_pod_info)",
+              "refId": "C"
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "User Created Resources",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 8
+          },
+          "targets": [
+            {
+              "expr": "count(kube_resourcequota{namespace!~\"^openshift.*\"})",
+              "refId": "D"
+            }
+          ]
+        }
+      ],
+      "refresh": "",
+      "schemaVersion": 38,
+      "style": "dark",
+      "tags": [],
+      "templating": {
+        "list": []
+      },
+      "time": {
+        "from": "now-6h",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Cluster Admin Dashboard",
+      "uid": "cluster-admin",
+      "version": 0
     }
