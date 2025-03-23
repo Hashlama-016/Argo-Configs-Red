@@ -7,10 +7,6 @@ metadata:
     app: grafana
 spec:
   serviceAccountName: grafana
-  ingress:
-    enabled: true
-    hostname: grafana-service.apps.hashlama016-red-openshift.bsmch.net
-    metadata: {}
   config:
     log:
       mode: "console"
