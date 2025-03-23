@@ -6,7 +6,6 @@ metadata:
   labels:
     app: grafana
 spec:
-  serviceAccountName: grafana
   config:
     log:
       mode: "console"

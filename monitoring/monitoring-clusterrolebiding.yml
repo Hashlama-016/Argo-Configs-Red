@@ -4,7 +4,7 @@ metadata:
   name: grafana-thanos-binding
 subjects:
   - kind: ServiceAccount
-    name: grafana
+    name: grafana-serviceaccount
     namespace: monitoring
 roleRef:
   kind: ClusterRole
