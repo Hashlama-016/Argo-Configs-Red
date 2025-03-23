@@ -10,7 +10,7 @@ spec:
   datasource:
     name: Prometheus
     type: prometheus
-    url: "http://thanos-querier.openshift-monitoring.svc:9091"
+    url: "https://thanos-querier.openshift-monitoring.svc:9091"
     access: proxy
     isDefault: true
   instanceSelector:
