@@ -12,7 +12,7 @@ spec:
     matchLabels:
       app: grafana
   json: |
-    {``
+    {
       "dashboard": {
         "title": "Cluster Admin Dashboard",
         "panels": [
