@@ -1,20 +1,15 @@
-apiVersion: grafana.integreatly.org/v1beta1
+apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDatasource
 metadata:
-  name: prometheus-datasource
+  name: thanos-querier-datasource
   namespace: monitoring
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-    argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"
 spec:
-  datasource:
-    name: Prometheus
-    type: prometheus
-    url: "https://thanos-querier-openshift-monitoring.apps.hashlama016-red-openshift.bsmch.net/api"
-    access: proxy
-    isDefault: true
-    jsonData:
-      tlsSkipVerify: true
-  instanceSelector:
-    matchLabels:
-      app: grafana
+  name: thanos-querier.yaml
+  datasources:
+    - name: Thanos Querier
+      type: prometheus
+      access: proxy
+      # Using the internal service name and port from the built-in OpenShift Monitoring stack:
+      url: http://thanos-querier.openshift-monitoring.svc:9091/api/v1
+      isDefault: false
+      editable: true
