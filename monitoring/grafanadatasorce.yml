@@ -10,9 +10,11 @@ spec:
   datasource:
     name: Prometheus
     type: prometheus
-    url: "http://thanos-querier-openshift-monitoring.apps.hashlama016-red-openshift.bsmch.net:9094"
+    url: "https://thanos-querier-openshift-monitoring.apps.hashlama016-red-openshift.bsmch.net/api"
     access: proxy
     isDefault: true
+    jsonData:
+      tlsSkipVerify: true
   instanceSelector:
     matchLabels:
       app: grafana
