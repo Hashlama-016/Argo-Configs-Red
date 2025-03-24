@@ -11,6 +11,8 @@ spec:
             path: rbac
           - name: users-auth
             path: users
+          - name: change-logo 
+            path: logo
   template:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
