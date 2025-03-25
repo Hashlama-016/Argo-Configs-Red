@@ -1,0 +1,14 @@
+{{- range .Values.teams }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: harbor-secret
+  namespace: {{ . }}
+  labels:
+    app: harbor-secret
+    type: registry-credentials
+type: kubernetes.io/dockerconfigjson
+stringData:
+  .dockerconfigjson: '{"auths":{"10.50.19.11":{"username":"admin","password":"Harbor12345"}}}'
+---
+{{- end }}

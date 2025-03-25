@@ -1,0 +1,5 @@
+ teams:
+  - name: backend
+    namespace: athena
+    image: 10.50.19.11/developer_images/node:16
+    port: 3000
