@@ -13,12 +13,6 @@ spec:
             branch: airflow
             path: airflow
             project: airflow
-          - branch: main
-            namespace: adi
-            path: application
-            project: default
-            team: adi
-            url: https://github.com/Hashlama-016/Argo-Configs-Red.git
   template:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
