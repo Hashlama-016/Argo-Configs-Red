@@ -8,6 +8,9 @@ subjects:
   - kind: Group
     name: {{ . }}
     apiGroup: rbac.authorization.k8s.io
+  - kind: ServiceAccount
+    name: {{ . }}-sa
+    namespace: {{ . }}
 roleRef:
   kind: ClusterRole
   name: admin
